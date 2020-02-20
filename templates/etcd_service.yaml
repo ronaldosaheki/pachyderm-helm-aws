@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+    name: etcd
+    namespace: {{ .Release.Namespace }}
+    labels:
+        app: etcd
+        suite: pachyderm
+        helm.sh/chart: {{ include "pachyderm.chart" . }} 
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+    ports:
+      - name: client-port
+        port: 2379
+    selector:
+        app: etcd
+    type: NodePort

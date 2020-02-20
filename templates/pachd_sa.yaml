@@ -1,0 +1,15 @@
+---
+{{- if .Values.serviceAccount.create }}
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: {{ include "pachyderm.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: ""
+    suite: pachyderm
+    helm.sh/chart: {{ include "pachyderm.chart" . }}
+    app.kubernetes.io/part-of: {{ include "pachyderm.fullname" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}

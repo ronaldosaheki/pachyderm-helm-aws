@@ -1,0 +1,38 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+    name: pachd
+    namespace: {{ .Release.Namespace }}
+    labels:
+        app: pachd
+        suite: pachyderm
+        helm.sh/chart: {{ include "pachyderm.chart" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+    annotations:
+        prometheus.io/port: "9091"
+        prometheus.io/scrape: "true"
+spec:
+    ports:
+      - name: api-grpc-port
+        port: 650
+        nodePort: {{ add .Values.portRange 650 }}
+      - name: trace-port
+        port: 651
+        nodePort: {{ add .Values.portRange 651 }}
+      - name: api-http-port
+        port: 652
+        nodePort: {{ add .Values.portRange 652 }}
+      - name: saml-port
+        port: 654
+        nodePort: {{ add .Values.portRange 654 }}
+      - name: api-git-port
+        port: 999
+        nodePort: {{ add .Values.portRange 999 }}
+      - name: s3gateway-port
+        port: 600
+        nodePort: {{ add .Values.portRange 600 }}
+    selector:
+        app: pachd
+    type: NodePort

@@ -1,0 +1,25 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+    name: dash
+    namespace: {{ .Release.Namespace }}
+    labels:
+        app: dash
+        name: {{ include "pachyderm.chart" . }}
+        suite: pachyderm
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        helm.sh/chart: {{ include "pachyderm.chart" . }}
+spec:
+    ports:
+      - name: dash-http
+        port: 8080
+        nodePort: {{ add .Values.portRange 80 }}
+      - name: grpc-proxy-http
+        port: 8081
+        nodePort: {{ add .Values.portRange 81 }}
+    selector:
+        app: dash
+        suite: pachyderm
+    type: NodePort
