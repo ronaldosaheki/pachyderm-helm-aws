@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  pachyderm-helm-aws:
+  - apiVersion: v1
+    appVersion: 1.9.9
+    created: "2020-02-20T11:55:03.215354Z"
+    description: A Helm chart for Kubernetes
+    digest: 5b68bd150f6dce7a6c8b804028665a2e2f27d93938350c19596554feb965ec2b
+    home: https://pachyderm.io
+    icon: https://avatars2.githubusercontent.com/u/10432478?s=200
+    keywords:
+    - pachyderm
+    - workflows
+    - reproducibility
+    - distributed
+    - processing
+    maintainers:
+    - email: rsaheki@gmail.com
+      name: ronaldosaheki
+    name: pachyderm-helm-aws
+    sources:
+    - https://github.com/pachyderm/pachyderm
+    urls:
+    - pachyderm-helm-aws-1.9.9.tgz
+    version: 1.9.9
+generated: "2020-02-20T11:55:03.214706Z"
