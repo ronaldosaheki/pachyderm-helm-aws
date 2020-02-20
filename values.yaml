@@ -20,11 +20,11 @@ pachd:
   shards: 16
   image:
     repository: pachyderm/pachd
-    tag: 1.9.11
+    tag: 1.9.12
     pullPolicy: Always
   worker:
     repository: pachyderm/worker
-    tag: 1.9.11
+    tag: 1.9.12
   ## For non-local deployments, 1 cpu and 2G of memory requests are recommended
   resources:
     limits:
@@ -34,6 +34,7 @@ pachd:
       cpu: 1
       memory: 3G
   exposeObjApi: true
+  requireCriticalServersOnly: false
   ## Size of pachd's in-memory cache for PFS files. Size is specified in bytes, with allowed SI       suffixes (M, K, G, Mi, Ki, Gi, etc).
   pfsCache: 1G
   storageUploadConcurrencyLimit: 100
@@ -53,7 +54,7 @@ etcd:
   replicaCount: 1
   image:
     repository: quay.io/coreos/etcd
-    tag: v3.3.5
+    tag: v3.3.18
     pullPolicy: IfNotPresent
   size: 20Gi
   ## For non-local deployments, 1 cpu and 2G of memory requests are recommended

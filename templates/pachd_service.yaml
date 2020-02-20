@@ -11,7 +11,7 @@ metadata:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
     annotations:
-        prometheus.io/port: "9091"
+        prometheus.io/port: "656"
         prometheus.io/scrape: "true"
 spec:
     ports:
@@ -28,8 +28,8 @@ spec:
         port: 654
         nodePort: {{ add .Values.portRange 654 }}
       - name: api-git-port
-        port: 999
-        nodePort: {{ add .Values.portRange 99 }}
+        port: 655
+        nodePort: {{ add .Values.portRange 655 }}
       - name: s3gateway-port
         port: 600
         nodePort: {{ add .Values.portRange 600 }}

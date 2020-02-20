@@ -53,7 +53,7 @@ spec:
                     containerPort: 653
                     protocol: TCP
                   - name: api-git-port
-                    containerPort: 999
+                    containerPort: 655
                     protocol: TCP
                   - name: saml-port
                     containerPort: 654
@@ -104,6 +104,8 @@ spec:
                             resource: requests.memory
                   - name: EXPOSE_OBJECT_API
                     value: {{ .Values.pachd.exposeObjApi | quote }}
+                  - name:  REQUIRE_CRITICAL_SERVERS_ONLY
+                    value: {{ .Values.pachd.requireCriticalServersOnly | quote }}
                   - name: GOOGLE_BUCKET
                     valueFrom:
                         secretKeyRef:
