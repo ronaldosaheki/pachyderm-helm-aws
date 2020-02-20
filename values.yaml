@@ -6,6 +6,65 @@ rbac:
 # Port range base from which will be added values for dash and pachd (80, 81,600, 650-655, 699)
 portRange: 30000
 
+
+nodeSelector: {}
+
+## Set default image settings, resource requests and number of replicas of pachd
+#Note: Do not modify the default values of these flags for production deployments without consulting with Pachyderm
+#support:
+# - pachd.resources.requests.memory
+# - pachd.resources.requests.cpu
+# - pachd.shards: number of nodes
+pachd:
+  replicaCount: 1
+  shards: 16
+  image:
+    repository: pachyderm/pachd
+    tag: 1.9.11
+    pullPolicy: Always
+  worker:
+    repository: pachyderm/worker
+    tag: 1.9.11
+  ## For non-local deployments, 1 cpu and 2G of memory requests are recommended
+  resources:
+    limits:
+      cpu: 1
+      memory: 3G
+    requests:
+      cpu: 1
+      memory: 3G
+  exposeObjApi: true
+  ## Size of pachd's in-memory cache for PFS files. Size is specified in bytes, with allowed SI       suffixes (M, K, G, Mi, Ki, Gi, etc).
+  pfsCache: 1G
+  storageUploadConcurrencyLimit: 100
+  disableSsl: false
+  noVerifySsl: false
+
+## Set default image settings and persistence settings of etcd
+#Note: Do not modify the default values of these flags for production deployments without consulting with Pachyderm
+#support:
+# - etcd.resources.requests.memory
+# - etcd.resources.requests.cpu
+# - etcd.replicaCount
+etcd:
+  #Pachyderm recommends that you keep this number at 1 . If you want to change it, consult with your
+  #Pachyderm support team. This flag creates a VolumeClaimTemplate in the etcd StatefulSet that
+  #uses the standard etcd-storage-class .
+  replicaCount: 1
+  image:
+    repository: quay.io/coreos/etcd
+    tag: v3.3.5
+    pullPolicy: IfNotPresent
+  size: 20Gi
+  ## For non-local deployments, 1 cpu and 2G of memory requests are recommended
+  resources:
+    requests:
+      cpu: 1
+      memory: 3G
+    limits:
+      cpu: 1
+      memory: 3G
+
 serviceAccount:
   # Specifies whether a ServiceAccount should be created
   create: true
@@ -20,7 +79,6 @@ amazon:
   # required: s3 bucket for this installation of pachyderm
   bucket: ""
   # required: etcd storage size in Gi unit eg: 20Gi
-  storageSize: ""
   distribution: ""
   maxUploadParts: "10000"
   # part-size default value of part-size was 5242880 which let pachyd server handle objects of up to 5GB
@@ -28,7 +86,7 @@ amazon:
   partSize: "62914560"
   retries: "10"
   reverse: "true"
-  timeout: "5m"
+  timeout: "50m"
   uploadAcl: "bucket-owner-full-control"
   roleArn: ""
 

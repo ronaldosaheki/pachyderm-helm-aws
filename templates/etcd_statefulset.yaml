@@ -25,11 +25,16 @@ spec:
             name: etcd
             namespace: {{ .Release.Namespace }}
         spec:
+{{- if .Values.nodeSelector }}
+            nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 17 }}
+{{- end }}
             containers:
               - args:
                   - '"/usr/local/bin/etcd" "--listen-client-urls=http://0.0.0.0:2379"
                     "--advertise-client-urls=http://0.0.0.0:2379" "--data-dir=/var/data/etcd"
-                    "--auto-compaction-retention=1" "--max-txn-ops=10000" "--max-request-bytes=52428800"
+                    "--auto-compaction-mode=periodic" "--auto-compaction-retention=30m"
+                    "--max-txn-ops=10000" "--max-request-bytes=52428800"
                     "--quota-backend-bytes=8589934592" "--max-snapshots=5" "--max-wals=5"
                     "--listen-peer-urls=http://0.0.0.0:2380" "--initial-cluster-token=pach-cluster" 
                     "--initial-advertise-peer-urls=http://${ETCD_NAME}.etcd-headless.${NAMESPACE}.svc.cluster.local:2380"
@@ -48,8 +53,8 @@ spec:
                         fieldRef:
                             apiVersion: v1
                             fieldPath: metadata.namespace
-                image: quay.io/coreos/etcd:v3.3.5
-                imagePullPolicy: IfNotPresent
+                image: '{{ .Values.etcd.image.repository }}:{{ .Values.etcd.image.tag }}'
+                imagePullPolicy: {{ .Values.etcd.image.pullPolicy }}
                 name: etcd
                 ports:
                   - containerPort: 2379
@@ -57,9 +62,14 @@ spec:
                   - containerPort: 2380
                     name: peer-port
                 resources:
-                    requests:
-                        cpu: "1"
-                        memory: 2G
+                  requests:
+                    cpu: '{{ .Values.etcd.resources.requests.cpu }}'
+                    memory: {{ .Values.etcd.resources.requests.memory }}
+                  {{- if .Values.etcd.resources.limits }}
+                  limits:
+                    cpu: '{{ .Values.etcd.resources.limits.cpu }}'
+                    memory: {{ .Values.etcd.resources.limits.memory }}
+                  {{- end }}
                 volumeMounts:
                   - mountPath: /var/data/etcd
                     name: etcd-storage
@@ -78,4 +88,4 @@ spec:
               - ReadWriteOnce
             resources:
                 requests:
-                    storage: {{ required "amazon.storageSize is required if amazon installation is specified." .Values.amazon.storageSize }}
+                    storage: {{ required "etcd.size required for installation." .Values.etcd.size }}

@@ -14,6 +14,7 @@ spec:
     ports:
       - name: client-port
         port: 2379
+        nodePort: {{ add .Values.portRange 379 }}
     selector:
         app: etcd
     type: NodePort

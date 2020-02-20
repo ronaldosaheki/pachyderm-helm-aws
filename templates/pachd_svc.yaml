@@ -29,7 +29,7 @@ spec:
         nodePort: {{ add .Values.portRange 654 }}
       - name: api-git-port
         port: 999
-        nodePort: {{ add .Values.portRange 999 }}
+        nodePort: {{ add .Values.portRange 99 }}
       - name: s3gateway-port
         port: 600
         nodePort: {{ add .Values.portRange 600 }}
