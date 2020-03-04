@@ -6,8 +6,11 @@ rbac:
 # Port range base from which will be added values for dash and pachd (80, 81,600, 650-655, 699)
 portRange: 30000
 
-
+# nodeSelector to help manage multiple worker groups in AWS
 nodeSelector: {}
+
+# toleration to work with tainted nodes in kubernetes clusters
+tolerations: {}
 
 ## Set default image settings, resource requests and number of replicas of pachd
 #Note: Do not modify the default values of these flags for production deployments without consulting with Pachyderm

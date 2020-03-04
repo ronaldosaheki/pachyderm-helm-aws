@@ -29,6 +29,10 @@ spec:
             nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 17 }}
 {{- end }}
+{{- if .Values.tolerations }}
+            tolerations:
+{{ toYaml .Values.tolerations | indent 17 }}
+{{- end }}
             containers:
               - args:
                   - '"/usr/local/bin/etcd" "--listen-client-urls=http://0.0.0.0:2379"
