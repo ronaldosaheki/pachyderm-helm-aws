@@ -47,6 +47,23 @@ Next table lists the configurable parameters of `etcd` and their default values:
 | `*.persistence.accessMode`  | Access mode for PV    | `ReadWriteOnce`       |
 | `*.persistence.storageClass`| PVC storage class     | `nil`                 |
 
+Optional kubernetes pod scheduling parameters
+
+| Parameter                 | Description                       | Default       |
+|---------------------------|-----------------------------------|---------------|
+| `nodeSelector`            | Specify node selector             | `{}`          |
+| `tolerations`             | Specify a toleration to podSpec   | `{}`          |
+
+Example of values:
+```
+  nodeSelector:
+    group: pachyderm
+  tolerations:
+    - key: "group"
+      operator: "Equal"
+      value: "pachyderm"
+```
+
 In order to set which object store credentials you want to use, please set the flag `credentials` with one of the following values: `local | s3 | google | amazon | microsoft`.
 
 | Parameter                | Description           | Default           |
@@ -54,30 +71,6 @@ In order to set which object store credentials you want to use, please set the f
 | `credentials`            | Backend credentials   | ""                |
 
 Based on the storage credentials used, fill in the corresponding parameters for your object store. Note that The `local` installation will deploy Pachyderm on your local Kubernetes cluster (i.e: minikube) backed by your local storage unit.
-
-On-premises deployment
-------------------------
-
-* On an on-premise environment like Openstack, a `S3 endpoint` can be used as storage backend. The following credentials (such as Minio credentials) are configurable:
-
-| Parameter                | Description           | Default           |
-|--------------------------|-----------------------|-------------------|
-| `s3.accessKey`           | S3 access key         | `""`              |
-| `s3.secretKey`           | S3 secret key         | `""`              |
-| `s3.bucketName`          | S3 bucket name        | `""`              |
-| `s3.endpoint`            | S3 endpoint           | `""`              |
-| `s3.secure`              | S3 secure             | `"0"`             |
-| `s3.signature`           | S3 signature          | `"1"`             |
-
-Google Cloud
--------------
-
-* With `Google Cloud` credentials, you must define your `GCS bucket name`:
-
-| Parameter                | Description           | Default           |
-|--------------------------|-----------------------|-------------------|
-| `google.bucketName`      | GCS bucket name       | `""`              |
-| `google.credentials`     | GCP credentials       | `""`              |
 
 Amazon Web Services
 ---------------------
@@ -94,16 +87,6 @@ Amazon Web Services
 | `amazon.secret`          | Amazon secret         | `""`              |
 | `amazon.token`           | Amazon token          | `""`              |
 
-Microsoft Azure
----------------------
-
-* As for `Microsoft Azure`, you must specify the following parameters:
-
-| Parameter                | Description           | Default           |
-|--------------------------|-----------------------|-------------------|
-| `microsoft.container`    | Container             | `""`              |
-| `microsoft.id`           | Account name          | `""`              |
-| `microsoft.secret`       | Account key           | `""`              |
 
 How to install the chart
 ------------------------
