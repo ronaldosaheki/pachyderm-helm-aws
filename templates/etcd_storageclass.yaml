@@ -9,4 +9,7 @@ metadata:
     namespace: {{ .Release.Namespace }}
 parameters:
     type: gp2
+{{- if .Values.etcd.zone }}
+    zone: {{ .Values.etcd.zone | quote }}
+{{- end }}
 provisioner: kubernetes.io/aws-ebs

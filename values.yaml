@@ -60,6 +60,7 @@ etcd:
     tag: v3.3.18
     pullPolicy: IfNotPresent
   size: 20Gi
+  zone: ""
   ## For non-local deployments, 1 cpu and 2G of memory requests are recommended
   resources:
     requests:
