@@ -24,10 +24,10 @@ spec:
                 app: pachd
                 suite: pachyderm
             annotations:
-                iam.amazonaws.com/role: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
-{{- if .Values.pachd.annotations }}
-{{ toYaml .Values.pachd.annotations | indent 17 }}
+{{- if .Values.etcd.annotations }}
+{{ toYaml .Values.etcd.annotations | indent 16 }}
 {{- end }}
+                iam.amazonaws.com/role: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
         spec:
             volumes:
               - name: pach-disk
