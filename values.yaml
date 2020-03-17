@@ -43,6 +43,7 @@ pachd:
   storageUploadConcurrencyLimit: 100
   disableSsl: false
   noVerifySsl: false
+  annotations: {}
 
 ## Set default image settings and persistence settings of etcd
 #Note: Do not modify the default values of these flags for production deployments without consulting with Pachyderm
@@ -69,6 +70,7 @@ etcd:
     limits:
       cpu: 1
       memory: 3G
+  annotations: {}
 
 serviceAccount:
   # Specifies whether a ServiceAccount should be created

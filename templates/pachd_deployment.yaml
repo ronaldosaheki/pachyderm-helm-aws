@@ -25,6 +25,9 @@ spec:
                 suite: pachyderm
             annotations:
                 iam.amazonaws.com/role: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
+{{- if .Values.pachd.annotations }}
+{{ toYaml .Values.pachd.annotations | indent 17 }}
+{{- end }}
         spec:
             volumes:
               - name: pach-disk

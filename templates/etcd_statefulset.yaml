@@ -24,6 +24,10 @@ spec:
                 suite: pachyderm
             name: etcd
             namespace: {{ .Release.Namespace }}
+{{- if .Values.etcd.annotations }}
+            annotations:
+{{ toYaml .Values.etcd.annotations | indent 17 }}
+{{- end }}
         spec:
 {{- if .Values.nodeSelector }}
             nodeSelector:
