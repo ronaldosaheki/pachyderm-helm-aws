@@ -13,7 +13,7 @@ metadata:
 spec:
     ports:
       - name: api-grpc-peer-port
-        port: 653
-        nodePort: {{ add .Values.portRange 653 }}
+        targetPort: 653
+        port: {{ add .Values.portRange 653 }}
     selector:
         app: pachd
