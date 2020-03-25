@@ -18,6 +18,6 @@ subjects:
     namespace: {{ .Release.Namespace }}
 roleRef:
     apiGroup: ""
-    kind: ClusterRole
+    kind: Role
     name: {{ include "pachyderm.fullname" . }}-worker
 {{- end}}
