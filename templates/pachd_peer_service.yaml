@@ -1,0 +1,19 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+    name: pachd-peer
+    namespace: {{ .Release.Namespace }}
+    labels:
+        app: pachd
+        suite: pachyderm
+        helm.sh/chart: {{ include "pachyderm.chart" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+    ports:
+      - name: api-grpc-peer-port
+        port: 653
+        nodePort: {{ add .Values.portRange 653 }}
+    selector:
+        app: pachd
