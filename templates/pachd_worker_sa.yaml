@@ -3,7 +3,7 @@
 kind: ServiceAccount
 apiVersion: v1
 metadata:
-  name: {{ include "pachyderm.serviceAccountName" . }}-worker
+  name: pachyderm-worker
   namespace: {{ .Release.Namespace }}
   labels:
     app: ""
