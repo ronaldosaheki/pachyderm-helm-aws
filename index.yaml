@@ -3,15 +3,9 @@ entries:
   pachyderm-helm-aws:
   - apiVersion: v1
     appVersion: 1.10.0
-<<<<<<< HEAD
     created: "2020-04-02T16:44:43.77144+01:00"
     description: A Helm chart for Kubernetes
     digest: a639b34109c5ba30b92467c38bc4b69ea7d84ce9d79af163b217c2c0e12c43af
-=======
-    created: "2020-03-25T19:49:32.142257Z"
-    description: A Helm chart for Kubernetes
-    digest: 06951464d0348c042a94225ec62e4ea6bd0934a3f71684ff11df46a7c3cf5d07
->>>>>>> aad6ed4b6acbb85da246a3221c2051f3b9b523dc
     home: https://pachyderm.io
     icon: https://avatars2.githubusercontent.com/u/10432478?s=200
     keywords:
@@ -31,11 +25,7 @@ entries:
     version: 1.10.0
   - apiVersion: v1
     appVersion: 1.9.12
-<<<<<<< HEAD
     created: "2020-04-02T16:44:43.776863+01:00"
-=======
-    created: "2020-03-25T19:49:32.145006Z"
->>>>>>> aad6ed4b6acbb85da246a3221c2051f3b9b523dc
     description: A Helm chart for Kubernetes
     digest: f4c1d7b2cab46a1427f9d2ef67fbb9a5a3f78cca89c5d9806b3ab7e512f5a6d7
     home: https://pachyderm.io
@@ -57,11 +47,7 @@ entries:
     version: 1.9.12
   - apiVersion: v1
     appVersion: 1.9.11
-<<<<<<< HEAD
     created: "2020-04-02T16:44:43.774303+01:00"
-=======
-    created: "2020-03-25T19:49:32.143265Z"
->>>>>>> aad6ed4b6acbb85da246a3221c2051f3b9b523dc
     description: A Helm chart for Kubernetes
     digest: 03bb5241baa28ff219f70879f8958c9441d89f5b69865f4da1fe0b87d190cd0d
     home: https://pachyderm.io
@@ -83,11 +69,7 @@ entries:
     version: 1.9.11
   - apiVersion: v1
     appVersion: 1.9.9
-<<<<<<< HEAD
     created: "2020-04-02T16:44:43.778754+01:00"
-=======
-    created: "2020-03-25T19:49:32.145894Z"
->>>>>>> aad6ed4b6acbb85da246a3221c2051f3b9b523dc
     description: A Helm chart for Kubernetes
     digest: 5b68bd150f6dce7a6c8b804028665a2e2f27d93938350c19596554feb965ec2b
     home: https://pachyderm.io
@@ -107,8 +89,4 @@ entries:
     urls:
     - pachyderm-helm-aws-1.9.9.tgz
     version: 1.9.9
-<<<<<<< HEAD
 generated: "2020-04-02T16:44:43.770433+01:00"
-=======
-generated: "2020-03-25T19:49:32.141041Z"
->>>>>>> aad6ed4b6acbb85da246a3221c2051f3b9b523dc
