@@ -23,11 +23,11 @@ pachd:
   shards: 16
   image:
     repository: pachyderm/pachd
-    tag: 1.10.0
+    tag: 1.10.1
     pullPolicy: Always
   worker:
     repository: pachyderm/worker
-    tag: 1.10.0
+    tag: 1.10.1
   ## For non-local deployments, 1 cpu and 2G of memory requests are recommended
   resources:
     limits:
