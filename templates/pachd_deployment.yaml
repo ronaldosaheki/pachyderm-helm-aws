@@ -89,7 +89,7 @@ spec:
                   - name: BLOCK_CACHE_BYTES
                     value: {{ .Values.pachd.pfsCache }}
                   - name: IAM_ROLE
-                    value: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
+                    value: {{ .Values.amazon.roleArn }}
                   - name: NO_EXPOSE_DOCKER_SOCKET
                     value: "false"
                   - name: PACHYDERM_AUTHENTICATION_DISABLED_FOR_TESTING
