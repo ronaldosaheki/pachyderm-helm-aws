@@ -23,11 +23,15 @@ spec:
             labels:
                 app: pachd
                 suite: pachyderm
+{{- if or .Values.etcd.annotations .Values.amazon.roleArn }}
             annotations:
+{{- end }}
 {{- if .Values.etcd.annotations }}
 {{ toYaml .Values.etcd.annotations | indent 16 }}
 {{- end }}
-                iam.amazonaws.com/role: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
+{{- if .Values.amazon.roleArn }}
+                iam.amazonaws.com/role: {{ .Values.amazon.roleArn }}
+{{- end }}
         spec:
             volumes:
               - name: pach-disk
@@ -94,7 +98,7 @@ spec:
                   - name: BLOCK_CACHE_BYTES
                     value: {{ .Values.pachd.pfsCache }}
                   - name: IAM_ROLE
-                    value: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
+                    value: {{ .Values.amazon.roleArn }}
                   - name: NO_EXPOSE_DOCKER_SOCKET
                     value: "false"
                   - name: PACHYDERM_AUTHENTICATION_DISABLED_FOR_TESTING
