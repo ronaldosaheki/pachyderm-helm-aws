@@ -3,7 +3,7 @@ entries:
   pachyderm-helm-aws:
   - apiVersion: v1
     appVersion: 1.10.1
-    created: "2020-04-14T14:32:36.604525+01:00"
+    created: "2020-05-11T18:19:51.008845+01:00"
     description: A Helm chart for Kubernetes
     digest: 3848051f566b7950651ec61e2fb964a377efa0ad4a619e42ae190fae56253cb4
     home: https://pachyderm.io
@@ -25,7 +25,7 @@ entries:
     version: 1.10.1
   - apiVersion: v1
     appVersion: 1.10.0
-    created: "2020-04-14T14:32:36.603617+01:00"
+    created: "2020-05-11T18:19:51.007565+01:00"
     description: A Helm chart for Kubernetes
     digest: 4c443eadfd1fc6b1b829d068ae9bfa9c584a29b09ce5077a3abbf1a803c2c990
     home: https://pachyderm.io
@@ -47,9 +47,9 @@ entries:
     version: 1.10.0
   - apiVersion: v1
     appVersion: 1.9.12
-    created: "2020-04-14T14:32:36.60874+01:00"
+    created: "2020-05-11T18:19:51.013409+01:00"
     description: A Helm chart for Kubernetes
-    digest: f4c1d7b2cab46a1427f9d2ef67fbb9a5a3f78cca89c5d9806b3ab7e512f5a6d7
+    digest: 13ec8f1a3fa8871c2fb81d1ed2ca782a1ced39c740dc7b58250eb76072ec01df
     home: https://pachyderm.io
     icon: https://avatars2.githubusercontent.com/u/10432478?s=200
     keywords:
@@ -69,7 +69,7 @@ entries:
     version: 1.9.12
   - apiVersion: v1
     appVersion: 1.9.11
-    created: "2020-04-14T14:32:36.607257+01:00"
+    created: "2020-05-11T18:19:51.012249+01:00"
     description: A Helm chart for Kubernetes
     digest: 03bb5241baa28ff219f70879f8958c9441d89f5b69865f4da1fe0b87d190cd0d
     home: https://pachyderm.io
@@ -91,7 +91,7 @@ entries:
     version: 1.9.11
   - apiVersion: v1
     appVersion: 1.9.9
-    created: "2020-04-14T14:32:36.610385+01:00"
+    created: "2020-05-11T18:19:51.014269+01:00"
     description: A Helm chart for Kubernetes
     digest: 5b68bd150f6dce7a6c8b804028665a2e2f27d93938350c19596554feb965ec2b
     home: https://pachyderm.io
@@ -111,4 +111,4 @@ entries:
     urls:
     - pachyderm-helm-aws-1.9.9.tgz
     version: 1.9.9
-generated: "2020-04-14T14:32:36.602543+01:00"
+generated: "2020-05-11T18:19:51.005977+01:00"
