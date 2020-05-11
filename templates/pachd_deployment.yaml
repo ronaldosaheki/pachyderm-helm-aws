@@ -23,8 +23,10 @@ spec:
             labels:
                 app: pachd
                 suite: pachyderm
+{{- if .Values.amazon.roleArn }}
             annotations:
-                iam.amazonaws.com/role: {{ required "amazon.roleArn is required if amazon installation is specified." .Values.amazon.roleArn }}
+                iam.amazonaws.com/role: {{ .Values.amazon.roleArn }}
+{{- end }}
         spec:
             volumes:
               - name: pach-disk
