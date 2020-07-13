@@ -293,6 +293,8 @@ spec:
                             optional: true
                   - name: STORAGE_UPLOAD_CONCURRENCY_LIMIT
                     value: {{ .Values.pachd.storageUploadConcurrencyLimit | quote }}
+                  - name: STORAGE_PUT_FILE_CONCURRENCY_LIMIT
+                    value: {{ .Values.pachd.storagePutFileConcurrencyLimit | quote }}
                 resources:
                   requests:
                     cpu: '{{ .Values.pachd.resources.requests.cpu }}'

@@ -2,8 +2,30 @@ apiVersion: v1
 entries:
   pachyderm-helm-aws:
   - apiVersion: v1
+    appVersion: 1.10.5
+    created: "2020-07-13T14:34:01.3236914+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 116103693e9a486068e7fb0589b9461d3782a1bc182260cf4052f460fee2cafb
+    home: https://pachyderm.io
+    icon: https://avatars2.githubusercontent.com/u/10432478?s=200
+    keywords:
+    - pachyderm
+    - workflows
+    - reproducibility
+    - distributed
+    - processing
+    maintainers:
+    - email: rsaheki@gmail.com
+      name: ronaldosaheki
+    name: pachyderm-helm-aws
+    sources:
+    - https://github.com/pachyderm/pachyderm
+    urls:
+    - pachyderm-helm-aws-1.10.5.tgz
+    version: 1.10.5
+  - apiVersion: v1
     appVersion: 1.10.1
-    created: "2020-05-20T11:42:17.97468+01:00"
+    created: "2020-07-13T14:34:01.3227084+01:00"
     description: A Helm chart for Kubernetes
     digest: 1e93265847dfdf64a95f8a1f76baf067f86eba9a6c55e54f798ee136b60a1f50
     home: https://pachyderm.io
@@ -25,7 +47,7 @@ entries:
     version: 1.10.1
   - apiVersion: v1
     appVersion: 1.10.0
-    created: "2020-05-20T11:42:17.973117+01:00"
+    created: "2020-07-13T14:34:01.3217364+01:00"
     description: A Helm chart for Kubernetes
     digest: 4c443eadfd1fc6b1b829d068ae9bfa9c584a29b09ce5077a3abbf1a803c2c990
     home: https://pachyderm.io
@@ -47,7 +69,7 @@ entries:
     version: 1.10.0
   - apiVersion: v1
     appVersion: 1.9.12
-    created: "2020-05-20T11:42:17.979149+01:00"
+    created: "2020-07-13T14:34:01.3278447+01:00"
     description: A Helm chart for Kubernetes
     digest: 22662742731f7dbc5c31083c8f1af7c9682b1487983e43512d73e8bdd0e0e400
     home: https://pachyderm.io
@@ -69,7 +91,7 @@ entries:
     version: 1.9.12
   - apiVersion: v1
     appVersion: 1.9.11
-    created: "2020-05-20T11:42:17.977117+01:00"
+    created: "2020-07-13T14:34:01.3247623+01:00"
     description: A Helm chart for Kubernetes
     digest: 03bb5241baa28ff219f70879f8958c9441d89f5b69865f4da1fe0b87d190cd0d
     home: https://pachyderm.io
@@ -91,7 +113,7 @@ entries:
     version: 1.9.11
   - apiVersion: v1
     appVersion: 1.9.9
-    created: "2020-05-20T11:42:17.979887+01:00"
+    created: "2020-07-13T14:34:01.3290856+01:00"
     description: A Helm chart for Kubernetes
     digest: 5b68bd150f6dce7a6c8b804028665a2e2f27d93938350c19596554feb965ec2b
     home: https://pachyderm.io
@@ -111,4 +133,4 @@ entries:
     urls:
     - pachyderm-helm-aws-1.9.9.tgz
     version: 1.9.9
-generated: "2020-05-20T11:42:17.971275+01:00"
+generated: "2020-07-13T14:34:01.3204948+01:00"
