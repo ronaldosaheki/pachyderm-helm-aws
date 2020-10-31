@@ -51,6 +51,7 @@ spec:
             containers:
               - name: pachd
                 image: '{{ .Values.pachd.image.repository }}:{{ .Values.pachd.image.tag }}'
+                command: ["/pachd"]
                 ports:
                   - name: api-grpc-port
                     containerPort: 650
@@ -68,6 +69,9 @@ spec:
                     protocol: TCP
                   - name: saml-port
                     containerPort: 654
+                    protocol: TCP
+                  - name: oidc-port
+                    containerPort: 657
                     protocol: TCP
                 env:
                   - name: ETCD_SERVICE_HOST
@@ -89,6 +93,8 @@ spec:
                     value: '{{ .Values.pachd.image.repository }}:{{ .Values.pachd.image.tag }}'
                   - name: WORKER_IMAGE_PULL_POLICY
                     value: IfNotPresent
+                  - name: WORKER_SERVICE_ACCOUNT
+                    value: pachyderm-worker
                   - name: PACHD_VERSION
                     value: {{ .Values.pachd.image.tag }}
                   - name: METRICS
@@ -117,6 +123,13 @@ spec:
                     value: {{ .Values.pachd.exposeObjApi | quote }}
                   - name:  REQUIRE_CRITICAL_SERVERS_ONLY
                     value: {{ .Values.pachd.requireCriticalServersOnly | quote }}
+                  - name: PACHD_POD_NAME
+                    valueFrom:
+                        fieldRef:
+                            apiVersion: v1
+                            fieldPath: metadata.name
+                  - name: PPS_WORKER_GRPC_PORT
+                    value: 80
                   - name: GOOGLE_BUCKET
                     valueFrom:
                         secretKeyRef:
