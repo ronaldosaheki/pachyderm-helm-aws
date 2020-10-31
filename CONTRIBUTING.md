@@ -21,4 +21,9 @@ pachctl_1.11.5 deploy amazon ${BUCKET_NAME} ${AWS_REGION} ${STORAGE_SIZE} --dyna
 
 And diff the output and implement the different in the Helmchart template.
 
-
+Update helm charts
+---
+```
+helm package .
+helm repo index .
+```
