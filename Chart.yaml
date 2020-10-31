@@ -8,8 +8,8 @@ keywords:
   - reproducibility
   - distributed
   - processing
-version: 1.10.5
-appVersion: 1.10.5
+version: 1.11.5
+appVersion: 1.11.5
 home: "https://pachyderm.io"
 sources:
   - "https://github.com/pachyderm/pachyderm"
