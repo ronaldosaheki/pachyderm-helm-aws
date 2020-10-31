@@ -27,6 +27,9 @@ spec:
       - name: saml-port
         port: 654
         nodePort: {{ add .Values.portRange 654 }}
+      - name: oidc-port
+        port: 657
+        nodePort: {{ add .Values.portRange 657 }}
       - name: api-git-port
         port: 655
         nodePort: {{ add .Values.portRange 655 }}
